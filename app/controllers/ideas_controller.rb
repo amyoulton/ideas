@@ -8,6 +8,7 @@ class IdeasController < ApplicationController
 
     def create
         @idea = Idea.new(params.require(:idea).permit(:title, :description))
+        @idea.user = current_user
         if @idea.save
             redirect_to ideas_path
           else
@@ -23,7 +24,7 @@ class IdeasController < ApplicationController
         id = params[:id]
         @idea = Idea.find(id)
         @review = Review.new 
-        @review = @idea.reviews.order(created_at: :desc)
+        @reviews = @idea.reviews.order(created_at: :desc)
     
         @like = @idea.likes.find_by(user: current_user)
     end

@@ -17,6 +17,8 @@ class LikesController < ApplicationController
 
     def destroy
         
+        like = Like.find params[:id]
+
         if !can?(:destroy, like)
           flash[:warning] = "You can't destroy a like you don't own"
         elsif like.destroy

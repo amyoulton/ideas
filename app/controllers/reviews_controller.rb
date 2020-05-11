@@ -2,13 +2,13 @@ class ReviewsController < ApplicationController
     def create 
         @idea = Idea.find(params[:idea_id])
         @review = Review.new review_params
-        @review.idea = @review
+        @review.idea = @idea
         @review.user = current_user
         if @review.save
-            redirect_to review_path(@review)
+            redirect_to idea_path(@idea)
         else
-            @review = @idea.reviews.order(created_at: :desc)
-            render 'idea/show'
+            @reviews = @idea.reviews.order(created_at: :desc)
+            render 'ideas/show'
         end
     end
 
