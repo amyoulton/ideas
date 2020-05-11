@@ -17,5 +17,9 @@ class Ability
       idea.user == user 
     end
 
+    can(:like, Idea) do |idea|
+      user.present? && idea.user != user
+    end
+
   end
 end
