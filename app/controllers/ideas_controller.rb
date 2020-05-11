@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show] 
+  before_action :authorize!, only: [:edit, :update, :destroy]
 
     def new
         @idea = Idea.new
@@ -43,5 +44,9 @@ class IdeasController < ApplicationController
         @idea = Idea.find(id)
         @idea.destroy
         redirect_to ideas_path
+    end
+
+    def authorize! 
+      redirect_to root_path, alert: 'Not Authorized' unless can?(:crud, Idea)
     end
 end
