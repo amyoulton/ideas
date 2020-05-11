@@ -1,3 +1,4 @@
+Like.delete_all 
 Review.delete_all 
 Idea.delete_all
 User.delete_all
@@ -33,12 +34,14 @@ NUM_IDEA.times do
           Review.new(body: Faker::GreekPhilosophers.quote, rating: Faker::Number.within(range: 1..5), user: users.sample)
         end
     end
+    i.likers = users.shuffle.slice(0, rand(users.count))
 
 end
 
 idea = Idea.all 
 review = Review.all
 
+puts Cowsay.say("Generated #{Like.count} likes", :ghostbusters)
 puts Cowsay.say("Generated #{idea.count} ideas", :frogs)
 puts Cowsay.say("Generated #{review.count} reviews", :tux)
 puts Cowsay.say("Generated #{users.count} users", :sheep)
