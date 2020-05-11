@@ -1,0 +1,28 @@
+<div class='shadow-sm p-3 mb-5 bg-white rounded overflow-wrap'>
+  <h1>
+    <span class='badge badge-pill badge-info'>
+      <%= @idea.id %>
+    </span>
+    <%= @idea.title %>
+  </h1>
+  <p class='shadow-none p-3 mb-5 bg-light rounded'><%= @idea.description %></p>
+ 
+
+  <div>
+    <%= link_to(
+      "Edit",
+      edit_idea_path(@idea),
+      class: 'btn btn-info'
+    )
+    %>
+    <%= link_to(
+      "Delete",
+      idea_path(@idea),
+      method: :delete,
+      class: 'btn btn-danger',
+      data: { confirm: 'are you sure?' }
+    )
+    %>
+  </div>
+
+</div>
