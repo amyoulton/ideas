@@ -34,6 +34,7 @@ NUM_IDEA.times do
         end
     end
 
+end
 
 idea = Idea.all 
 review = Review.all
@@ -41,4 +42,3 @@ review = Review.all
 puts Cowsay.say("Generated #{idea.count} ideas", :frogs)
 puts Cowsay.say("Generated #{review.count} reviews", :tux)
 puts Cowsay.say("Generated #{users.count} users", :sheep)
-end
