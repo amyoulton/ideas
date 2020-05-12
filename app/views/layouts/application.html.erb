@@ -11,11 +11,11 @@
 
   <body>
   <%= render 'shared/navbar' %>
-    <div class='container'>
+    <div class="flash">
       <% flash.each do |type, message| %>
         <div class='bg-<%= type %> p-3 rounded mb-2 shadow-sm'>
           <%= message %>
-        </div>
+    </div>
       <% end %>
     <%= yield %>
   </body>

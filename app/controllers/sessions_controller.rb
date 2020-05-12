@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         flash[:success] = "User Logged In"
         redirect_to ideas_path
       else
-        flash[:warning] = "Couldn't log In"
+        flash[:warning] = "Couldn't Log In, Please Try Again"
         render :new
       end
     end

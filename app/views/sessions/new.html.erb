@@ -1,5 +1,5 @@
-<div class='shadow-sm p-3 mb-5 bg-white rounded'>
-  <h1>Sign In</h1>
+  <h1 class="heading">Sign In</h1>
+<div class='show-container''>
   <%= form_with url: session_path, local:true do |f| %>
     <div class='form-group'>
       <%= f.label :email %>
@@ -9,6 +9,6 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
     </div>
-    <%= f.submit "Sign In", class: 'btn btn-success'%>
+    <%= f.submit "Sign In", class: 'btn btn-shadow'%>
   <% end %>
 </div>

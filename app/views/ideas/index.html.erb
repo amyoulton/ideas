@@ -1,13 +1,19 @@
-
-<h1>Ideas Index Page</h1>
 <div>
-  <ul>
+  <ul class="index-list">
   <% @ideas.each do |idea| %>
     <%# if you pass a instance to link_to it will create the href='/questions/:id' %>
     <%= link_to idea do %>
-      <li class='list-group-item'>
-        <p><%= idea.id %> <%= idea.title %></p>
+    <div class="index-text">
+      <li class='list-item'>
+        <h4 class="index-title"> <%= idea.title %> </h4>
+        <p> <%= idea.description %> </p>
+        
       </li>
+      <div class="user-like-info">
+      <span class="user-link">By <%= idea.user.first_name %> <%= idea.user.last_name %> </span>
+      <span>Likes: <%= idea.likes.count %></span>
+      </div>
+      </div>
     <% end %>
   <% end %>
 </ul>

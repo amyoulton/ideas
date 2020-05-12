@@ -9,7 +9,7 @@ class UsersController < ApplicationController
           flash.delete(:warning)
           redirect_to ideas_path
         else
-          flash[:warning] = "unable to create user"
+          flash[:warning] = "Unable to Create User"
           render :new
         end
       end

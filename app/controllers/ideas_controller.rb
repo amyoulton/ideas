@@ -17,7 +17,7 @@ class IdeasController < ApplicationController
     end
 
     def index
-          @ideas = Idea.all.order('updated_at DESC')  
+          @ideas = Idea.all.order('updated_at DESC') 
     end
 
     def show

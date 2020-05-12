@@ -1,10 +1,10 @@
-<h1>User New Page</h1>
+<h1 class="heading">User New Page</h1>
 <% if @user.errors.present? %>
   <p>
     <%= @user.errors.full_messages.join(', ')%>
   </p>
 <% end %>
-<div class='shadow-sm p-3 mb-5 bg-white rounded'>
+<div class='show-container'>
   <%= form_with model: @user, local: true do |f| %>
     <div class='form-group'>
       <%= f.label :first_name%>
@@ -26,6 +26,6 @@
       <%= f.label :password_confirmation%>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
-    <%= f.submit "Create User", class: 'btn btn-primary' %>
+    <%= f.submit "Create User", class: 'btn btn-shadow' %>
   <% end %>
 </div>

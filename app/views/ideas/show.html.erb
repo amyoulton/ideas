@@ -1,16 +1,14 @@
-<div class='shadow-sm p-3 mb-5 bg-white rounded overflow-wrap'>
-  <h1>
-    <span class='badge badge-pill badge-info'>
-      <%= @idea.id %>
-    </span>
+<div class='show-container'>
+<div class=show-bk>
+  <h1 class="show-title">
     <%= @idea.title %>
   </h1>
-  <p class='shadow-none p-3 mb-5 bg-light rounded'><%= @idea.description %></p>
+  <p class='show-text'><%= @idea.description %></p>
  
-  <p class='text-muted'><%= @idea.user.first_name %> <%= @idea.user.last_name %></p>
-  <%# link_to arguments: name, path, options_object %>
-  <small>Liked by: <%= @idea.likes.count %></small>
-  <small>
+  <p class='show-text text-muted'><%= @idea.user.first_name %> <%= @idea.user.last_name %></p>
+  </div>
+  <span class="show-user">Liked by: <%= @idea.likes.count %></span>
+  <span class="btn btn-shadow">
     <% if @like.present? %>
       <%= link_to(
           "Unlike",
@@ -26,27 +24,30 @@
         )
       %>
     <% end %>
-  </small>
+  </span>
   <% if can? :crud, @idea %>
-  <div>
+  <div class='edit-delete-btns '>
     <%= link_to(
       "Edit",
       edit_idea_path(@idea),
-      class: 'btn btn-info'
+      class: 'btn btn-shadow show-btn'
     )
     %>
     <%= link_to(
       "Delete",
       idea_path(@idea),
       method: :delete,
-      class: 'btn btn-danger',
+      class: 'btn btn-shadow show-btn',
       data: { confirm: 'are you sure?' }
     )
     %>
   </div>
   <% end %>
+  
 </div>
 
+
+<div class='show-container'>
 <%= form_with(model: [@idea, @review], local: true) do |f| %>
   <% if @review.errors.full_messages.each do |msg| %>
     <ul>
@@ -72,13 +73,15 @@
       class: "form-control"
     ) %>
   </div>
-  <%= f.submit "Review", class: "btn-primary" %>
+  <%= f.submit "Review", class: "btn btn-shadow" %>
 <% end %>
-
-<ul class="list-group answer-list">
+<div>
+<ul class="index-list">
   <% @reviews.each do |review| %>
-    <li class="list-group-item">
-      <p>
+  <div class="index-text">
+    <li class="list-item">
+    <h5>Review: <%= review.rating %> out of 5</h5>
+      <p class='show-text'>
         <%= review.body %><br />
         <% if can? :crud, review %>
         <small>
@@ -89,15 +92,18 @@
             data: {
               confirm: "Are you sure?"
             },
-            class: 'btn btn-danger btn-sm',
+            class: 'btn btn-shadow show-btn btn-sm',
           ) %>
         </small>
         |
         <% end %>
         <small>
-          Reviewed <%= time_ago_in_words(review.created_at) %> By <%= review.user.first_name %> <%= review.user.last_name %>
+          Reviewed <%= time_ago_in_words(review.created_at) %> by <%= review.user.first_name %> <%= review.user.last_name %>
         </small>
       </p>
     </li>
+    </div>
   <% end %>
 </ul>
+</div>
+</div>

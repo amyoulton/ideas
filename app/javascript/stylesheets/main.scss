@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+
+body {
+  font-family: 'Comic Neue', cursive;
+  background-color: #f1f1f1;
+}
+
+a {
+  color: black;
+}
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.new-idea {
+  margin-top: 1em;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-shadow {
+  outline: medium solid black;
+  box-shadow: 8px 8px;
+  border-radius: 0;
+  padding: 0.3rem 0.5rem;
+  color: black;
+  background-color: white;
+}
+
+.user {
+  margin-right: 1em;
+  font-size: 22px;
+}
+
+.idea-img {
+  height: 60px;
+  width: 60px;
+  border-radius: 20%;
+  margin-bottom: 8px;
+}
+
+.logo {
+  text-align: center;
+}
+
+.log-btns {
+  margin: 5px;
+}
+
+.list-item {
+  list-style: none;
+  margin-top: 1em;
+}
+
+.home-btn {
+  text-decoration: none;
+  color: black;
+}
+
+.home-btn:hover {
+  text-decoration: none;
+  color: darkgray;
+}
+
+.index-list {
+  padding: 1em;
+}
+
+.user-like-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.index-text {
+  border-top: medium solid black;
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.user-link {
+  text-decoration: underline;
+}
+
+.show-container {
+  margin: 2em;
+  padding: 2em;
+  outline: thin solid black;
+}
+
+.btn-like {
+  outline: thin solid black;
+}
+
+.show-user {
+  font-size: 18px;
+  margin-right: 1em;
+}
+
+.show-text {
+  font-size: 20px;
+}
+
+.edit-delete-btns {
+  margin-top: 1em;
+}
+
+.show-btn {
+  margin-right: 1em;
+}
+
+.show-bk {
+  background-color: white;
+  padding: 4px;
+  outline: thin solid grey;
+  margin-bottom: 1em;
+}
+
+.flash {
+  margin: 1em 4em;
+}
+
+.heading {
+  margin-left: 2em;
+}

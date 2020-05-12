@@ -4,6 +4,8 @@
   </p>
 <% end %>
 
+<div class='show-container'>
+
 <%= form_with model: @idea, local:true do |f| %>
   <div class='form-group'>
     <%= f.label :title %>
@@ -16,3 +18,5 @@
 
   <%= f.submit "Submit", class: 'btn btn-primary' %>
 <% end %>
+
+</div>

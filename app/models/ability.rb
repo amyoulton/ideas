@@ -24,6 +24,5 @@ class Ability
     can :destroy, Like  do |like|
       like.user == user
     end
-
   end
 end

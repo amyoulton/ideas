@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    
     def create 
         @idea = Idea.find(params[:idea_id])
         @review = Review.new review_params
