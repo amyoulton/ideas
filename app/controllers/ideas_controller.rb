@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show] 
+  before_action :get_idea!, only: [:edit, :update, :destroy]
   before_action :authorize!, only: [:edit, :update, :destroy]
 
     def new
@@ -30,8 +31,7 @@ class IdeasController < ApplicationController
     end
 
     def edit
-        id = params[:id]
-        @idea = Idea.find(id)
+       
     end
 
     def update
@@ -51,7 +51,13 @@ class IdeasController < ApplicationController
         redirect_to ideas_path
     end
 
+    private
+
+    def get_idea!
+      @idea = Idea.find(params[:id])
+    end 
+
     def authorize! 
-      redirect_to root_path, alert: 'Not Authorized' unless can?(:crud, Idea)
+      redirect_to root_path, alert: 'Not Authorized' unless can?(:crud, @idea)
     end
 end
